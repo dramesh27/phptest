@@ -5,8 +5,6 @@ $dbuser = getenv("databaseuser");
 $dbpwd = getenv("databasepassword");
 $dbname = getenv("databasename");
 
-<?php
- 
 // Connection details
 $conn_string = "host=$dbhost port=$dbport dbname=$dbname user=$dbuser password=$dbpwd options='--client_encoding=UTF8'";
  
