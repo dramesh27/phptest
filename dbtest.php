@@ -6,7 +6,6 @@ $dbpwd = getenv("databasepassword");
 $dbname = getenv("databasename");
 
 $connection =  pg_connect($dbhost, $dbport, $dbname, $dbuser, $dbpwd);
-echo "<h2>" . $dbuser . "</h2>";
 if ($connection->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
