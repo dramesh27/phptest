@@ -5,12 +5,22 @@ $dbuser = getenv("databaseuser");
 $dbpwd = getenv("databasepassword");
 $dbname = getenv("databasename");
 
-$connection =  pg_connect($dbhost, $dbport, $dbname, $dbuser, $dbpwd);
-if ($connection->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
-    exit();
+<?php
+ 
+// Connection details
+$conn_string = "host=$dbhost port=$dbport dbname=$dbname user=$dbuser password=$dbpwd options='--client_encoding=UTF8'";
+ 
+// Establish a connection with MySQL server
+$dbconn = pg_connect($conn_string);
+ 
+// Check connection status. Exit in case of errors
+if(!$dbconn) {
+echo "Error: Unable to open database\n";
 } else {
-    printf("Connected to the database");
+echo "Opened database successfully\n";
 }
-$connection->close();
+ 
+// Close connection
+pg_close($dbconn);
+ 
 ?>
